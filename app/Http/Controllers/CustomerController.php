@@ -9,9 +9,11 @@ class CustomerController extends Controller
         return view('customers.new');
     }
     public function create(Request $request)
-    {
-         echo "Firstname= " . $request->firstname;
-         echo "<br>Surname= " . $request->surname;
-    }
+{
+    $customer = new Customer();
+    $customer->setFirstname($request->firstname);
+    $customer->setSurname($request->surname);
+    $customer->save();
+}
 }
 ?>
